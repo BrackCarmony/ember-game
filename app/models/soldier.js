@@ -18,16 +18,8 @@ var soldier = DS.Model.extend({
   }.property('tier'),
   scaleTrait: function(stat){
     var c = this.get('classType');
-    console.log('c:', c);
-
-    var promise = new Ember.RSVP.Promise (function (resolve, reject){
-      c.then(function(){
-          resolve (c.get(stat+'Growth'));
-      });
-    });
-
-    //Math.round( this.get('level') *c.get(stat+'Growth')*Math.pow(1.05,this.get('tier'))/10);
-    return promise;
+    //console.log('c:', c);
+    return Math.round( this.get('level') *c.get(stat+'Growth')*Math.pow(1.05,this.get('tier'))/10);
   },
   maxHp: function(){
     //console.log('Blerg');

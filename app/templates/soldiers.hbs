@@ -3,7 +3,7 @@
   <h1>Units</h1>
   <ul class='list-unstyled'>
   	{{#each soldier in this}}
-  		<li class='boxed-div'> {{#link-to 'soldiers.soldier' soldier}} {{soldier.name}} the level {{soldier.level}} {{soldier.classType.className}} {{soldier.rankEmblem}}{{/link-to}} {{soldier.id}} </li>
+  		<li class='boxed-div'> {{#link-to 'soldiers.soldier' soldier}} {{soldier.name}} the level {{soldier.level}} {{soldier.classType.className}} {{soldier.rankEmblem}}{{/link-to}}</li>
   	{{/each}}
      <li class='boxed-div'>{{#link-to 'soldiers.new'}} New Unit {{/link-to}}</li>
   </ul>
