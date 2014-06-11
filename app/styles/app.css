@@ -1,0 +1,18 @@
+.boxed-div
+{
+  border-style:solid;
+  border-color: #654321;
+  border-width: 1px;
+  margin:5px;
+  background-image: url('/assets/backgrounds/paper.png');
+  text-align: center;
+
+}
+
+.icon-div
+{
+  border-style: solid;
+  border-color: #123456;
+  border-width: 1px;
+
+}
