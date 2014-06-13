@@ -3,27 +3,30 @@
 <h2>{{name}} <img {{bind-attr src = 'image'}}></h2>
 <p> Level: {{level}}/{{maxLevel}} XP: {{xp}} Next Level:{{nextLevelXP}}</p>
 <ul class = 'list-unstyled'>
+<div class = 'col-md-12'>
   <li class='row'>
     <h3>Character Stats<h3>
   </li>
-</li class ='row'>
-    <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/hp.png'></image> {{maxHp}} </div> 
-    <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/attack.png'></image> {{attack}} </div> 
-    <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/defense.png'></image> {{defense}} </div> 
+<li class ='row'>
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/hp.png'></image> {{maxHp}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/attack.png'></image> {{attack}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/defense.png'></image> {{defense}} </div> 
   </li>
   <li class='row'>
-    <div class = 'col-md-12'>
-    <h3>Weapon Stats<h3>
-    <!-- <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/hp.png'></image> {{getWeapon.attackDamage}} </div> 
-    <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/attack.png'></image> {{getWeapon.attackDamage}} </div> 
-    <div class='icon-div col-md-1 col-md-offset-1'> <img src='assets/icons/defense.png'></image> {{getWeapon.attackDamage}} </div> -->
+    
+    <h3>Weapon Stats - {{getWeapon.weaponTypeName}}</h3>
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/attackPower.png'></image> {{getWeapon.attackDamage}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/attackSpeed.png'></image> {{getWeapon.attackSpeed}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/range.png'></image> {{getWeapon.attackRange}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img {{bind-attr src='getWeapon.damageIcon'}}></image> T </div> 
+    
     </div>
   </li>
   <li class='row'>
     
   </li>
   <li class='row'>
-    <h3>Armor Stats Stats<h3>
+    <h3>Armor Stats</h3>
   </li>
   <li class = 'row'>
    

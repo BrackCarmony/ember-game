@@ -3,12 +3,12 @@ var classes = DS.Model.extend({
   maxHpGrowth:DS.attr('number'),
   attackGrowth:DS.attr('number'),
   defenseGrowth:DS.attr('number'),
-  defaultWeaponType:DS.belongsTo('weapontype'),
+  defaultWeaponType:DS.belongsTo('weapontype',{async: true}),
   soldiers:DS.hasMany('soldier'),
 
   defaultWeapon:function(){
     return this.get('defaultWeaponType').get('defaultWeapon');
-  }.property('className')
+  }.property('defaultWeaponType.@each')
   //soldiers:DS.hasMany('soldier')
 });
 

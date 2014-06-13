@@ -6,8 +6,16 @@ var soldier = DS.Model.extend({
   xp: DS.attr('number'),
   weapon:DS.belongsTo('weapon',{async:true}),
   getWeapon:function(){
-    //return this.get('classType').get('defaultWeapon');
-  }.property('classType'),
+    console.log(this.get('weapon'));
+    if(this.get('weapon') === null)
+    {
+      return this.get('classType').get('defaultWeapon');
+    }else
+    {
+      return this.get('weapon');
+    }
+
+  }.property('classType.defaultWeaponType.@each','weapon.@each'),
   maxLevel: function(){
 
     if(this.get('tier')*5>100){
@@ -24,13 +32,13 @@ var soldier = DS.Model.extend({
   maxHp: function(){
     //console.log('Blerg');
     return this.scaleTrait('maxHp');  
-  }.property('level','tier', 'classType'),
+  }.property('level','tier', 'classType.className'),
   attack: function(){
     return this.scaleTrait('attack');
-  }.property('level','tier','classType'),
+  }.property('level','tier','classType.className'),
   defense: function(){
     return this.scaleTrait('defense');
-  }.property('level','tier','classType'),
+  }.property('level','tier','classType.className'),
   nextLevelXP: function(){
     if (this.get('level') < this.get('maxLevel')){
     var base = 100*Math.pow(1.05,this.get('tier')-1);
@@ -41,13 +49,7 @@ var soldier = DS.Model.extend({
   }.property('level','tier'),
   image: function(){
       return 'assets/portraits/'+this.get('classType').get('className')+'.png';
-  }.property('classType')
-
-    /*,
-  maxHp: function(){
-    var classModel = App.classModels[this.get("className")];
-    return classModel["maxHpGrowth"]; //classModels.get("maxHpGrowth");
-  }.property()*/
+  }.property('classType.className')
 });
 
 soldier.reopenClass({
@@ -59,6 +61,7 @@ soldier.reopenClass({
       level:4,
       tier:1,
       xp:100,
+      weapon: 1
       //image:'assets/portaits/Wizard.png'
     },
     {

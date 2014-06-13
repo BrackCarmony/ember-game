@@ -1,10 +1,17 @@
 var weapon = DS.Model.extend({
   weapontype:DS.belongsTo('weapontype'),
-
+  weaponTypeName:function (){
+    return this.get('weapontype.weaponTypeName');
+  }.property('weapontype.weaponTypeName'),
   attackDamage:DS.attr('number'),
   attackSpeed:DS.attr('number'),
   attackRange:DS.attr('number'),
-  attackType:DS.attr('string'),
+  attackType:function (){
+    return this.get('weapontype.AttackType');
+  }.property('weapontype.AttackType'),
+  damageIcon:function(){
+    return 'assets/icons/' + this.get('weapontype.attackType') + '.png';
+  }.property('weapontype.attackType')
   
 });
 
@@ -13,13 +20,12 @@ weapon.reopenClass({
     {
       id:1,
       
-      attackDamge:50,
+      attackDamage:50,
       attackSpeed:50,
       attackRange:50,
       attackType:'Slash',
 
       weapontype:1
-      //image:'assets/portaits/Wizard.png'
     }
     ]
 });

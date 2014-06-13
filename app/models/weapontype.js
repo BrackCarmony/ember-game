@@ -5,8 +5,8 @@ var weapontype = DS.Model.extend({
   attackRangeMin:DS.attr('number'),
   attackType:DS.attr('string'),
   attackDamageMax: function(){
-    return this.get('attackDamgeMin')*4;
-  }.property('attackDamgeMin'),
+    return this.get('attackDamageMin')*4;
+  }.property('attackDamageMin'),
   attackSpeedMax: function(){
     return this.get('attackSpeedMin')*3;
   }.property('attackSpeedMin'),
@@ -14,15 +14,16 @@ var weapontype = DS.Model.extend({
     return this.get('attackRangeMin')*2;
   }.property('attackRangeMin'),
 
-  baseWeapon: function(){
+  defaultWeapon: function(){
     return {
-      weapontype: this,
+      weaponTypeName: this.get('weaponTypeName'),
       attackDamage: this.get('attackDamageMin'),
       attackSpeed: this.get('attackSpeedMin'),
       attackRange: this.get('attackRangeMin'),
-      attackType: this.get('attackType')
+      attackType: this.get('attackType'),
+      damageIcon: 'assets/icons/' + this.get('attackType') + '.png'
     };
-  }.property('weapontype')
+  }.property('weaponTypeName')
 });
 
 weapontype.reopenClass({
@@ -31,9 +32,9 @@ weapontype.reopenClass({
       id:1,
       
       weaponTypeName:'Amulet',
-      attackDamge:30,
-      attackSpeed:40,
-      attackRange:20,
+      attackDamageMin:30,
+      attackSpeedMin:40,
+      attackRangeMin:20,
       attackType:'Fire',
       
     },
@@ -41,9 +42,9 @@ weapontype.reopenClass({
       id:2,
       
       weaponTypeName:'Orb',
-      attackDamge:110,
-      attackSpeed:20,
-      attackRange:10,
+      attackDamageMin:110,
+      attackSpeedMin:20,
+      attackRangeMin:10,
       attackType:'Earth',
       
     },
@@ -51,9 +52,9 @@ weapontype.reopenClass({
       id:3,
       
       weaponTypeName:'Staff',
-      attackDamge:40,
-      attackSpeed:20,
-      attackRange:30,
+      attackDamageMin:40,
+      attackSpeedMin:20,
+      attackRangeMin:30,
       attackType:'Earth',
       
     },
@@ -61,9 +62,9 @@ weapontype.reopenClass({
       id:4,
       
       weaponTypeName:'Wand',
-      attackDamge:20,
-      attackSpeed:40,
-      attackRange:30,
+      attackDamageMin:20,
+      attackSpeedMin:40,
+      attackRangeMin:30,
       attackType:'Fire',
       
     },
@@ -71,19 +72,19 @@ weapontype.reopenClass({
       id:5,
       
       weaponTypeName:'Claw',
-      attackDamge:40,
-      attackSpeed:70,
-      attackRange:8,
-      attackType:'Slash',
+      attackDamageMin:40,
+      attackSpeedMin:70,
+      attackRangeMin:8,
+      attackType:'Earth',
       
     },
     {
       id:6,
       
       weaponTypeName:'Cutlass',
-      attackDamge:50,
-      attackSpeed:50,
-      attackRange:8,
+      attackDamageMin:50,
+      attackSpeedMin:50,
+      attackRangeMin:8,
       attackType:'Slash',
       
     },
@@ -91,9 +92,9 @@ weapontype.reopenClass({
       id:7,
       
       weaponTypeName:'Lance',
-      attackDamge:30,
-      attackSpeed:40,
-      attackRange:18,
+      attackDamageMin:30,
+      attackSpeedMin:40,
+      attackRangeMin:18,
       attackType:'Pierce',
       
     },
@@ -101,9 +102,9 @@ weapontype.reopenClass({
       id:8,
       
       weaponTypeName:'Sword',
-      attackDamge:50,
-      attackSpeed:40,
-      attackRange:10,
+      attackDamageMin:50,
+      attackSpeedMin:40,
+      attackRangeMin:10,
       attackType:'Slash',
       
     },
@@ -111,9 +112,9 @@ weapontype.reopenClass({
       id:9,
       
       weaponTypeName:'Bow',
-      attackDamge:30,
-      attackSpeed:30,
-      attackRange:30,
+      attackDamageMin:30,
+      attackSpeedMin:30,
+      attackRangeMin:30,
       attackType:'Pierce',
       
     },
@@ -121,9 +122,9 @@ weapontype.reopenClass({
       id:10,
       
       weaponTypeName:'Javelin',
-      attackDamge:40,
-      attackSpeed:30,
-      attackRange:20,
+      attackDamageMin:40,
+      attackSpeedMin:30,
+      attackRangeMin:20,
       attackType:'Piere',
       
     },
@@ -131,19 +132,19 @@ weapontype.reopenClass({
       id:11,
       
       weaponTypeName:'Musket',
-      attackDamge:30,
-      attackSpeed:20,
-      attackRange:35,
-      attackType:'Pierce',
+      attackDamageMin:30,
+      attackSpeedMin:20,
+      attackRangeMin:35,
+      attackType:'Fire',
       
     },
     {
       id:12,
       
       weaponTypeName:'Shuriken',
-      attackDamge:30,
-      attackSpeed:60,
-      attackRange:15,
+      attackDamageMin:30,
+      attackSpeedMin:60,
+      attackRangeMin:15,
       attackType:'Slash',
       
     }
