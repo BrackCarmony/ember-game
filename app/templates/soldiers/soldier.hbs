@@ -25,11 +25,17 @@
   <li class='row'>
     
   </li>
+  {{#if armor}}
   <li class='row'>
-    <h3>Armor Stats</h3>
+    <h3>{{armor.armorType}} armor</h3>
   </li>
   <li class = 'row'>
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/slash.png'></image> {{armor.slashResistance}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/pierce.png'></image> {{armor.pierceResistance}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/fire.png'></image> {{armor.fireResistance}} </div> 
+    <div class='icon-div col-xs-1 col-xs-offset-1'> <img src='assets/icons/earth.png'></image> {{armor.earthResistance}} </div> 
    
   </li>
+  {{/if}}
 </ul>
 </div>

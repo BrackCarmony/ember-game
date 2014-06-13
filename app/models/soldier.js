@@ -5,8 +5,9 @@ var soldier = DS.Model.extend({
   tier:DS.attr('number'),
   xp: DS.attr('number'),
   weapon:DS.belongsTo('weapon',{async:true}),
+  armor:DS.belongsTo('armor',{async:true}),
   getWeapon:function(){
-    console.log(this.get('weapon'));
+    //console.log(this.get('weapon'));
     if(this.get('weapon') === null)
     {
       return this.get('classType').get('defaultWeapon');
@@ -61,7 +62,8 @@ soldier.reopenClass({
       level:4,
       tier:1,
       xp:100,
-      weapon: 1
+      weapon: 1,
+      armor:4
       //image:'assets/portaits/Wizard.png'
     },
     {
@@ -70,7 +72,7 @@ soldier.reopenClass({
       classType:2,
       level:4,
       tier:2,
-      xp:123,
+      xp:12
       //image:'images/portraits/Wizard.png'
     },
     {
@@ -80,6 +82,7 @@ soldier.reopenClass({
       level:4,
       tier:3,
       xp:15,
+      armor:1
       //image:'images/portraits/Warrior.png'
     },
     {
@@ -89,6 +92,7 @@ soldier.reopenClass({
       level:2,
       tier:7,
       xp:15,
+      armor:2
       //image:'images/portraits/Warrior.png'
     },
     {
@@ -97,7 +101,7 @@ soldier.reopenClass({
       classType:9,
       level:5,
       tier:2,
-      xp:15,
+      xp:15
       //image:'images/portraits/Warrior.png'
     },
     {
@@ -106,7 +110,7 @@ soldier.reopenClass({
       classType:7,
       level:7,
       tier:2,
-      xp:15,
+      xp:15
       //image:'images/portraits/Warrior.png'
     },
     {
@@ -116,6 +120,7 @@ soldier.reopenClass({
       level:5,
       tier:5,
       xp:15,
+      armor:3
       //image:'images/portraits/Warrior.png'
     }
     ]
